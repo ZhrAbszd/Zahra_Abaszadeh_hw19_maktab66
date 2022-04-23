@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#202c37" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <title>REST Countries API</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+
+    <script>
+      const w = window,
+        d = document,
+        de = d.documentElement;
+
+      const light = "theme--light";
+      const dark = "theme--dark";
+
+      const t = localStorage.getItem("theme");
+
+      if (t === null || t !== light || t !== dark) {
+        const mediaQueryList = w.matchMedia("(prefers-color-scheme: dark)");
+
+        if (mediaQueryList.matches) {
+          de.classList.add(dark);
+          localStorage.setItem("theme", dark);
+        } else {
+          de.classList.add(light);
+          localStorage.setItem("theme", light);
+        }
+      } else {
+        de.classList.add(t);
+      }
+    </script>
+    
+    <div id="root"></div>
+  </body>
+</html>
